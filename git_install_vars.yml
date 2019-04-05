@@ -1,0 +1,16 @@
+--- # This is first playbook
+- hosts: all
+  user: ansadmin
+  become: true
+  connection: ssh
+  gather_facts: no
+  vars:
+   software: git
+   web_soft: httpd
+  vars_files:
+   config/vars_web.yml
+  tasks:
+    - name: install git software
+      yum:  pkg={{ software }} state=installed
+    - name: install httpd software
+      yum:  pkg={{ webserver }} state=installed
