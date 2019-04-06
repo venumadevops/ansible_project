@@ -1,0 +1,13 @@
+--- # This is first playbook
+- hosts: all
+  user: ansadmin
+  become: true
+  connection: ssh
+  gather_facts: no
+  tasks:
+    - name: install git softwares
+      yum:  pkg={{ item }} state=installed
+      loop:
+        - git
+        - httpd
+        - telnet 

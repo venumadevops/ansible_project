@@ -1,0 +1,14 @@
+--- # This is first playbook
+- hosts: all
+  user: ansadmin
+  become: true
+  connection: ssh
+  gather_facts: yes
+  tasks:
+    - name: install softwares
+      yum:  pkg=git state=installed
+      when: ansible_os_family == "RedHat"
+     
+        
+        
+     
